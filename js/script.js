@@ -63,21 +63,11 @@ const showError = (message) => {
   const formGroup = email.parentElement.closest('.input-wrap');
   formGroup.querySelector('small').innerText = message;
 };
-const saveMessage = () => {
-  let newMessageRef = messagesRef.push();
-   newMessageRef.set({
-     name: name.value,
-     email: email.value,
-     subject: subject.value,
-     message: message.value,
-   });
-};
 
 function validateEmail(emailValid) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let emailValidTest = re.test(String(emailValid).toLowerCase());
   if (emailValidTest === true) {
-    saveMessage();
     showError('');
   email.style.marginBottom = "12px";
   form.querySelectorAll('input').forEach(inputTag => {
@@ -96,3 +86,15 @@ form.addEventListener('submit', function (event) {
     validateEmail(email.value);
   }
 });
+
+document.querySelector("form").addEventListener("submit", handleSubmit);
+const handleSubmit = (e) => {
+  e.preventDefault()
+  let myForm = document.getElementById('contact');
+  let formData = new FormData(myForm)
+  fetch('/', {
+    method: 'POST',
+    body: new URLSearchParams(formData).toString()
+  }).then(() => console.log('Form successfully submitted')).catch((error) =>
+    alert(error))
+}
