@@ -97,8 +97,8 @@
 					</p>
 					<br>
 					<div class="home-btn-contain">
-						<a href="./assets/tolusolaadeyemi.pdf" class="home-btn btn" download>
-							<i class="fa fa-download" aria-hidden="true"></i>
+						<a href="./assets/tolusolaadeyemi.pdf" data-toggle="modal" data-target="#myResume"class="home-btn btn">
+							<i class="fa fa-file" aria-hidden="true"></i>
 							Resume
 						</a>
 						<a href="#contact-page" class="home-btn btn">
@@ -356,6 +356,24 @@
 	</div>
 </footer>
 
+<!--modal-->
+ <div id="myResume" class="modal fade" role="dialog">
+	 <div class="modal-dialog modal-lg">
+		 <div class="modal-content">
+			 <div class="modal-header">
+				 <h4 class="modal-title"><p class="brand">tolu<span class="logo-blue">solaadeyemi</span></p></h4>
+			 </div>
+			 <div class="modal-body">
+				 <embed src="./assets/tolusolaadeyemi .pdf"
+						class="mypdf" frameborder="0">
+				 <div class="modal-footer">
+					 <button type="button" class="button contact-btn btn" data-dismiss="modal">Close</button>
+				 </div>
+			 </div>
+
+		 </div>
+	 </div>
+ </div>
 
 </div>
 <!-- JS Files: jQuery, Popper, and bootstrap.js-->
