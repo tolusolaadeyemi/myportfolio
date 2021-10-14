@@ -190,7 +190,7 @@ section {
     justify-content: center;
 }
 .about-card > * {
-    padding:20px;
+    padding:30px;
     flex-basis: 50%;
     position: relative;
     background-color:#f1faee;
