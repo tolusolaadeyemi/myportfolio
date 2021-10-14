@@ -236,7 +236,7 @@ section {
 }
 .skill-card-text {
     transform: rotate(-45deg);
-    margin:20px;
+    margin:10px;
 
 }
 #skills-page {
@@ -646,11 +646,6 @@ footer {
     }
     .connect-info-contain {
         flex-direction: column;
-    }
-    .skill-card-text {
-        transform: rotate(-45deg);
-        margin:10px;
-    
     }
 }
 
