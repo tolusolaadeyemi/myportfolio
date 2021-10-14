@@ -299,16 +299,17 @@
 					<img src="./images/meetme.png" class="w-100 h-100" alt="">
 				</div>
 				<div class="">
+					<div class="myalert">Your message has been received ! </div>
 					<div class="my">
 						<p>Have an idea you want to bring to life?</p>
 						<p>Send me a message :)</p>
 					</div>
-					<form class="text-center" id="contact" name="contact" method="POST" data-netlify="true">
+					<form class="text-center">
 						<div class="input-wrap">
 							<label class="input-label" for="name" class="w-100">
 								<i class="fa fa-user" aria-hidden="true"></i>
 							</label>
-							<input type="text" class="w-100" name="name" id="name" placeholder="Name"
+							<input type="text" class="w-100" name="name" id="uname" placeholder="Name"
 								required>
 						</div>
 						<div class="input-wrap">
@@ -374,8 +375,16 @@
 		 </div>
 	 </div>
  </div>
-
 </div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 <!-- JS Files: jQuery, Popper, and bootstrap.js-->
 <script src="js/script.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>

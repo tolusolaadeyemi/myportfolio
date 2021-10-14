@@ -471,6 +471,13 @@ footer {
 .social-media-icons a:last-of-type {
     padding-right: 0px;
 }
+.myalert{
+    text-align:center;
+    padding:10px;
+    background:#fae1dd;
+    margin-bottom:10px;
+    display:none;
+}
 @media (max-width: 768px) {
     .header,
     .container {

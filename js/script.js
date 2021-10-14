@@ -4,7 +4,7 @@ const mobileNavLinks = document.querySelectorAll('.mobile-nav-link'),
   header = document.querySelector('header'),
   form = document.querySelector('form'),
   loader = document.querySelector('.loader'),
-  name = document.querySelector('#name'),
+  uname = document.querySelector('#uname'),
   email = document.querySelector('#email'),
   subject = document.querySelector('#subject'),
   message = document.querySelector('#message'),
@@ -16,6 +16,24 @@ const mobileNavLinks = document.querySelectorAll('.mobile-nav-link'),
   viewCertificate = document.querySelector('.view-certificate'),
   certificateBtns = document.querySelectorAll('.certificate-btn');
 
+// Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD8XQysT6yUe89rEpgOAb348UYUtmPnzJ0",
+    authDomain: "contact-form-37888.firebaseapp.com",
+    databaseURL:"contact-form-37888-default-rtdb.firebaseio.com",
+    projectId: "contact-form-37888",
+    storageBucket: "contact-form-37888.appspot.com",
+    messagingSenderId: "269342994798",
+    appId: "1:269342994798:web:8c284845cb279d5030917f",
+    measurementId: "G-08NZQG9GJ5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+var messagesRef = firebase.database().ref('messages');
+//initialize firebase database 
 
 const resizeHeight = () => {
   aboutCards.forEach(aboutCard => {
@@ -64,11 +82,30 @@ const showError = (message) => {
   formGroup.querySelector('small').innerText = message;
 };
 
+//save messages to firebase
+const saveMessage = () => {
+  let newMessageRef = messagesRef.push();
+   newMessageRef.set({
+     uname: uname.value,
+     email: email.value,
+     subject: subject.value,
+     message: message.value,
+   });
+};
+
+
 function validateEmail(emailValid) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let emailValidTest = re.test(String(emailValid).toLowerCase());
   if (emailValidTest === true) {
+    saveMessage();
     showError('');
+    //show alert
+    document.querySelector('.myalert').style.display='block';
+    //hide alert after 3secs
+    setTimeout(function(){
+      document.querySelector('.myalert').style.display='none';
+    },3000);
   email.style.marginBottom = "12px";
   form.querySelectorAll('input').forEach(inputTag => {
     inputTag.value = '';
@@ -86,15 +123,3 @@ form.addEventListener('submit', function (event) {
     validateEmail(email.value);
   }
 });
-
-document.querySelector("form").addEventListener("submit", handleSubmit);
-const handleSubmit = (e) => {
-  e.preventDefault()
-  let myForm = document.getElementById('contact');
-  let formData = new FormData(myForm)
-  fetch('/', {
-    method: 'POST',
-    body: new URLSearchParams(formData).toString()
-  }).then(() => console.log('Form successfully submitted')).catch((error) =>
-    alert(error))
-}
