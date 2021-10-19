@@ -644,6 +644,10 @@ footer {
     .footer-div {
         flex-direction: column;
     }
+    .contact-text {
+        margin: 10px auto;
+        font-size:14px;
+    }
     .edu-grid,
     .project-grid,
     .contact-info-grid {
@@ -658,6 +662,7 @@ footer {
     .connect-info-contain {
         flex-direction: column;
     }
+
 }
 
 
