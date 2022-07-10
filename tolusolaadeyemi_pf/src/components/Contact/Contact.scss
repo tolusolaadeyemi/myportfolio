@@ -1,0 +1,59 @@
+.contact {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 5rem;
+
+	.intro {
+		margin-top: -1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+
+		.contactText {
+			font-size: 1.75rem;
+			font-weight: bold;
+		}
+
+		img {
+			height: 13rem;
+			margin-top: -1rem;
+			width: auto;
+		}
+
+		.contactIcons {
+			height: 5rem;
+			background: #e0afa0;
+			margin-bottom: 5rem;
+			border-radius: 20px;
+			width: 80%;
+			max-width: 50rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			padding: 1rem;
+			margin-top: -0.25rem;
+
+			a {
+				text-decoration: none;
+				background: rgba(#e0afa0, 0.9);
+				height: 3rem;
+				width: 90%;
+				border-radius: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #fff;
+				font-size: 2rem;
+
+				p {
+					margin-left: 0.5rem;
+				}
+			}
+		}
+	}
+}
